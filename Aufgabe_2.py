@@ -1,43 +1,43 @@
 class NumberRange:
-    minValue: int
-    maxValue: int
+    min_value: int
+    max_value: int
 
-    def __init__(self, minValue: int, maxValue: int):
-        if minValue < 0 or maxValue < 0:
+    def __init__(self, min_value: int, max_value: int):
+        if min_value < 0 or max_value < 0:
             raise Exception('The NumberRange must consist of positive values!')
-        if minValue > maxValue:
-            raise Exception('The number of minValue must be less than or equal to maxValue!')
-        self.minValue = minValue
-        self.maxValue = maxValue
+        if min_value > max_value:
+            raise Exception('The number of min_value must be less than or equal to max_value!')
+        self.min_value = min_value
+        self.max_value = max_value
 
-def getLowestCommonMultiple(numberRange: NumberRange):
-    lcm = numberRange.maxValue
-    while lcm % numberRange.minValue != 0:
-        lcm += numberRange.maxValue
+def get_lowest_common_multiple(number_range: NumberRange):
+    lcm = number_range.max_value
+    while lcm % number_range.min_value != 0:
+        lcm += number_range.max_value
     return lcm
 
-print(getLowestCommonMultiple(NumberRange(5, 7)))
-print(getLowestCommonMultiple(NumberRange(23, 45)))
+print(get_lowest_common_multiple(NumberRange(5, 7)))
+print(get_lowest_common_multiple(NumberRange(23, 45)))
 
 """
 Algorithmenanalyse:
-    - lcm = numberRange.maxValue (Zeile 14) wird genau einmal ausgeführt -> O(1)
-    - Die while-Schleife (Zeile 15) wird solange ausgeführt, bis ein Vielfaches von maxValue gefunden wird, das durch minValue teilbar ist 
+    - lcm = numberRange.max_value (Zeile 14) wird genau einmal ausgeführt -> O(1)
+    - Die while-Schleife (Zeile 15) wird solange ausgeführt, bis ein Vielfaches von max_value gefunden wird, das durch min_value teilbar ist 
     - In jedem Schleifendurchlauf werden nur konstante viele Operationen ausgeführt:
         > Eine Modulo-Operation mit einem Vergleich mit O
-        > Inkrementierung von lcm mit maxValue
-    - Anzahl Schleifendurchläufe enspricht der Anzahl der geprüften Vielfachen von maxValue
-        > kgV(minValue, maxValue) / maxValue - 1 (die Schleife startet direkt mit dem ersten Vielfachen von maxValue)
-        > daraus folgt: kgV(minValue, maxValue) = (minValue * maxValue) / ggT(minValue, maxValue)
-        => Anzahl an Schleifendurchläufen = (a / ggT(minValue, maxValue)) - 1
+        > Inkrementierung von lcm mit max_value
+    - Anzahl Schleifendurchläufe enspricht der Anzahl der geprüften Vielfachen von max_value
+        > kgV(min_value, max_value) / max_value - 1 (die Schleife startet direkt mit dem ersten Vielfachen von max_value)
+        > daraus folgt: kgV(min_value, max_value) = (min_value * max_value) / ggT(min_value, max_value)
+        => Anzahl an Schleifendurchläufen = (a / ggT(min_value, max_value)) - 1
     - Schlimmstmöglicher Fall:
-        > minValue und maxValue haben einen größten gemeinsamen Teiler von 1 -> ggT(minValue, maxValue) = 1
+        > min_value und max_value haben einen größten gemeinsamen Teiler von 1 -> ggT(min_value, max_value) = 1
         => Anzahl an Schleifendurchläufen = a - 1 
            
     Ergebnis:
-    - T(minValue) = c1 + c2 · minValue
+    - T(min_value) = c1 + c2 · min_value
     - Da Konstanten in der O-Notation vernachlässigt werden, ergibt sich:
-      T(minValue) = O(minValue)
-    - Mit n = minValue folgt:
+      T(min_value) = O(min_value)
+    - Mit n = min_value folgt:
       T(n) = O(n)
 """
