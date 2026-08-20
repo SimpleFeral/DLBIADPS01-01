@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book-list SYSTEM "books.dtd">
+<book-list>
+    <book>
+        <title>Held der Steine</title>
+        <author>John Doe</author>
+        <price>24,99</price>
+        <year-of-publication>2025</year-of-publication>
+    </book>
+    <book>
+        <title>Maps of Muscle and Moonlight</title>
+        <author>Max Mustermann</author>
+        <price>29.99</price>
+        <year-of-publication>2026</year-of-publication>
+    </book>
+    <book>
+        <title>Everyday Athlete's Playbook</title>
+        <author>Hanna Maier</author>
+        <price>19.99</price>
+        <year-of-publication>2023</year-of-publication>
+    </book>
+</book-list>
