@@ -15,11 +15,11 @@ class Book:
         
     def __str__(self):
         return f'Book: (Title: {self.title}, Author: {self.author})'
-        
+     
 books_xml = parse('books.xml')
 
 def resolve_title_and_author():
-    resolved_books = [Book]
+    resolved_books = []
     for book_node in books_xml.getElementsByTagName('book'):
         title = ''
         author = ''
