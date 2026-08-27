@@ -3,7 +3,6 @@ def compute_amount_with_minimal_coins_dp(coins: list[int], target_amount: int):
     # Erstellung einese Arrays zur Speicherung der Anzahl 
     # an benötigten Münzen für den jeweiligen Teilbetrag 
     memory = [float('inf')] * (target_amount + 1)
-    
     # Ein Betrag 0 benötigt 0 Münzen => erstes Element = 0
     memory[0] = 0
    
@@ -23,15 +22,7 @@ def compute_amount_with_minimal_coins_dp(coins: list[int], target_amount: int):
     if memory[target_amount] == float('inf'):
         return None
     
-    return memory[target_amount]
+    return memory
                        
     
-coins = [1, 3, 4]
-target_amount = 6
-
-result = compute_amount_with_minimal_coins_dp(
-    coins,
-    target_amount
-)
-
-print(result)
+print(compute_amount_with_minimal_coins_dp([1, 3, 4], 6))
