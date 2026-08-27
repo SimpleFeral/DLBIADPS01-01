@@ -24,5 +24,10 @@ def compute_amount_with_minimal_coins_dp(coins: list[int], target_amount: int):
     
     return memory
                        
+target_amount = 6
+coins = [1, 3, 4]
+
+result = compute_amount_with_minimal_coins_dp(coins, target_amount)
     
-print(compute_amount_with_minimal_coins_dp([1, 3, 4], 6))
+for i in range(1, target_amount+1):
+    print(f'Needed {result[i]} coins for sub amount {i}')
